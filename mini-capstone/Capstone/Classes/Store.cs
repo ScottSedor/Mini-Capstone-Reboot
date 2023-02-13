@@ -13,5 +13,37 @@ namespace Capstone.Classes
     /// </remarks>
     public sealed class Store
     {
+        public decimal CustomerBalance { get; private set; } = 0;
+        public List<ICandy> ShoppingCart { get; private set; } = new List<ICandy>();  
+        InventoryItem inventoryItem = new InventoryItem();
+        public Store() { }
+
+        public decimal AddMoney(decimal amountToAdd)
+        {
+            if(CustomerBalance >= 1000)
+            {
+                throw new CustomExecption();
+            }
+            CustomerBalance += amountToAdd;
+            return CustomerBalance;
+        }
+
+        public InventoryItem AddProductToCart(ICandy productSelected)
+        {
+            if (ShoppingCart.Contains(productSelected))
+            {
+                productSelected.ItemQuantitySelected++;
+            }
+            else
+            {
+                productSelected.ItemQuantitySelected = 1;
+                ShoppingCart.Add(productSelected);
+                
+            }
+            productSelected.ItemTotalPrice = productSelected.ItemIndividualPrice * productSelected.ItemQuantitySelected;
+            return inventoryItem;
+        }
+
+        //public  selectItem
     }
 }
