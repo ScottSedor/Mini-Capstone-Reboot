@@ -17,7 +17,6 @@ namespace Capstone.Classes
             try
             {
                 ShowMainMenu();
-
             }
             catch (CustomException incorrectNumber)
             {
@@ -33,11 +32,6 @@ namespace Capstone.Classes
             {
                 Console.WriteLine("\n Oops.  Please enter a number between 1 & 3");
                 Run();
-            }
-            catch (BalanceOver1000Exception invalidEntry)
-            {
-                invalidEntry.InvalidEntry();
-                ShowMakeSaleMenu();
             }
         }
         //This method will show the main menu options
@@ -84,23 +78,44 @@ namespace Capstone.Classes
                 }
                 if (mainMenuChoice == 1)
                 {
-                    Console.WriteLine("\nHow much money would you like to add? ");
-                    store.AddMoney();
-                    ShowMakeSaleMenu();
+                    DepositMoney();
                 }
                 if (mainMenuChoice == 2)
                 {
-                    ShowInventoryMenu();                   
-                    store.AddItemToCartById();
-                    DisplayCartContents();
-                    ShowMakeSaleMenu();
+                    SelectItem();
                 }
-                if(mainMenuChoice == 3)
+                if (mainMenuChoice == 3)
                 {
                     //completeSale();
                 }
+                Console.WriteLine("\n***ERROR***\n Invalid Entry\n");
+                ShowMakeSaleMenu();
             }
         }
+
+        private void SelectItem()
+        {
+            ShowInventoryMenu();
+            store.AddItemToCartById();
+            DisplayCartContents();
+            ShowMakeSaleMenu();
+        }
+
+        private void DepositMoney()
+        {
+            try
+            {
+                Console.WriteLine("\nHow much money would you like to add? ");
+                store.AddMoney();
+                ShowMakeSaleMenu();
+            }
+            catch (BalanceOver1000Exception invalidEntry)
+            {
+                invalidEntry.InvalidEntry();
+                ShowMakeSaleMenu();
+            }
+        }
+
         //This method displays the current contents of the shopping cart for the current session
         public void DisplayCartContents()
         {
