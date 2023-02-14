@@ -55,6 +55,7 @@ namespace Capstone.Classes
             catch (CustomExecption incorrectNumber)
             {
                 incorrectNumber.InvalidEntry();
+                Run();
             }
             catch(FormatException)
             {
