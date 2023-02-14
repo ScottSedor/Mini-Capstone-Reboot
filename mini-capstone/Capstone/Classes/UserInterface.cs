@@ -70,22 +70,6 @@ namespace Capstone.Classes
 
         }
 
-        private void ShowMainMenu()
-        {
-            Console.WriteLine("\nWelcome to Hell");
-            Console.WriteLine("\n(1) Show Inventory \n(2) Make Sale \n(3) Quit\n");
-
-        }
-
-        private void ShowInventoryMenu()
-        {
-            Console.WriteLine("{0, -5} {1, -20} {2, -10} {3, -5} {4, 0}", "\nId", "Name", "Wrapper", "Qty", "Price\n");
-            foreach (ICandy item in inventoryItemList)
-            {
-                Console.WriteLine("{0, -5} {1, -20} {2, -10} {3, -5} {4, 0}", item.ItemId, item.ItemName, item.IsIndiviuallyWrapped, item.ItemQuantity, item.ItemIndividualPrice);
-            }
-        }
-
         private void ShowMakeSaleMenu()
         {
             Console.WriteLine("\n(1) Take Money \n(2) Select Products \n(3) Complete Sale\n \nCurrent Customer Balance: " + store.CustomerBalance + "\n");
@@ -101,8 +85,7 @@ namespace Capstone.Classes
                 if (mainMenuChoice == 1)
                 {
                     Console.WriteLine("How much money would you like to add? ");
-                    decimal amountToAdd = Decimal.Parse(Console.ReadLine());
-                    store.AddMoney(amountToAdd);
+                    store.AddMoney();
                     ShowMakeSaleMenu();
                 }
                 if (mainMenuChoice == 2)
@@ -135,6 +118,22 @@ namespace Capstone.Classes
                     store.AddProductToCart(productSelected);
                     Console.WriteLine("\n" + productSelected.ItemQuantitySelected + " " + productSelected.ItemName + "(s) Have been added to your cart.\n");
                 }
+            }
+        }
+        //This method will show the main menu Options
+        private void ShowMainMenu()
+        {
+            Console.WriteLine("\nWelcome to Command Line Candy Store");
+            Console.WriteLine("\n(1) Show Inventory \n(2) Make Sale \n(3) Quit\n");
+
+        }
+
+        private void ShowInventoryMenu()
+        {
+            Console.WriteLine("{0, -5} {1, -20} {2, -10} {3, -5} {4, 0}", "\nId", "Name", "Wrapper", "Qty", "Price\n");
+            foreach (ICandy item in inventoryItemList)
+            {
+                Console.WriteLine("{0, -5} {1, -20} {2, -10} {3, -5} {4, 0}", item.ItemId, item.ItemName, item.IsIndiviuallyWrapped, item.ItemQuantity, item.ItemIndividualPrice);
             }
         }
     }

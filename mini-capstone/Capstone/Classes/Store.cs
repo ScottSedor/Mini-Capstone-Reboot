@@ -18,9 +18,10 @@ namespace Capstone.Classes
         InventoryItem inventoryItem = new InventoryItem();
         public Store() { }
 
-        public decimal AddMoney(decimal amountToAdd)
+        public decimal AddMoney()
         {
-            if(CustomerBalance >= 1000)
+            decimal amountToAdd = Decimal.Parse(Console.ReadLine());
+            if (CustomerBalance >= 1000)
             {
                 throw new CustomExecption();
             }
