@@ -15,11 +15,6 @@ namespace Capstone.Classes
         public bool IsIndiviuallyWrapped { get; private set; }
         public int ItemQuantity { get; private set; } = 100;
         
-        
-
-
-        public InventoryItem(){}
-
         public List<ICandy> PopulateInventoryList()
         {
             List<ICandy> InventoryItemsList = new List<ICandy>();

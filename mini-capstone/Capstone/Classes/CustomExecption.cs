@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Capstone.Classes
 {
-    public class CustomExecption : Exception
+    public class CustomException : Exception
     {
         public void InvalidEntryMainMenu()
         {
-            Console.WriteLine("\nOops.  Please select a valid option.  ");
+            Console.WriteLine("\n***ERROR*** \nOops.  Please select a valid option.\n***ERROR***");
         }
     }
 
@@ -16,7 +16,14 @@ namespace Capstone.Classes
     {
         public void InvalidEntryMakeSaleMenu()
         {
-            Console.WriteLine("\nOops.  Please select a valid option.  ");
+            Console.WriteLine("\n***ERROR*** \nOops.  Please select a valid option.\n***ERROR***");
+        }
+    }
+    public class BalanceOver1000Exception : Exception
+    {
+        public void InvalidEntry()
+        {
+            Console.WriteLine("\n***ERROR*** \nOops.  Your balance may not exceed $1000.00\n***ERROR***");
         }
     }
 }
