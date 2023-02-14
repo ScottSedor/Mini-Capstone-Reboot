@@ -54,8 +54,13 @@ namespace Capstone.Classes
             }
             catch (CustomExecption incorrectNumber)
             {
-                incorrectNumber.InvalidEntry();
+                incorrectNumber.InvalidEntryMainMenu();
                 Run();
+            }
+            catch(MakeSaleMenuException incorrectNumber)
+            {
+                incorrectNumber.InvalidEntryMakeSaleMenu();
+                ShowMakeSaleMenu();
             }
             catch(FormatException)
             {
@@ -91,7 +96,7 @@ namespace Capstone.Classes
                 int mainMenuChoice = int.Parse(Console.ReadLine());
                 if (mainMenuChoice > 3 || mainMenuChoice < 1)
                 {
-                    throw new CustomExecption();
+                    throw new MakeSaleMenuException();
                 }
                 if (mainMenuChoice == 1)
                 {
