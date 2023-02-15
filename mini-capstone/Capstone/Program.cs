@@ -8,7 +8,7 @@ namespace Capstone
     /// <summary>
     /// This class is the main entry point for the application.
     /// 
-    /// You likely will not need to modify this file at all.
+    /// 
     /// </summary>
     /// 
     /// Shows Main Menu on Start

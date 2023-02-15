@@ -26,4 +26,11 @@ namespace Capstone.Classes
             Console.WriteLine("\n***ERROR*** \nOops.  Your balance may not exceed $1000.00\n***ERROR***");
         }
     }
+    public class InsufficientFundsException : Exception
+    {
+        public void NotEnoughFunds()
+        {
+            Console.WriteLine("\n***ERROR*** \nPurchase total exceeds current balance.\n***ERROR*** \n");
+        }
+    }
 }

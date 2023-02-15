@@ -37,8 +37,10 @@ namespace Capstone.Classes
         //This method will show the main menu options
         private void ShowMainMenu()
         {
+            Console.WriteLine("--------------------------------------------------------------");
             Console.WriteLine("\nWelcome to Command Line Candy Store");
             Console.WriteLine("\n(1) Show Inventory \n(2) Make Sale \n(3) Quit\n");
+            Console.WriteLine("--------------------------------------------------------------");
             bool isDecided = false;
             while (!isDecided)
             {
@@ -65,9 +67,10 @@ namespace Capstone.Classes
         }
         private void ShowMakeSaleMenu()
         {
+            Console.WriteLine("--------------------------------------------------------------");
             Console.WriteLine("\nWelcome to Command Line Candy Store");
             Console.WriteLine("\n(1) Take Money \n(2) Select Products \n(3) Complete Sale\n \nCurrent Customer Balance: " + store.CustomerBalance + "\n");
-
+            Console.WriteLine("--------------------------------------------------------------");
             bool isDecided = false;
             while (!isDecided)
             {
@@ -86,9 +89,16 @@ namespace Capstone.Classes
                 }
                 if (mainMenuChoice == 3)
                 {
-                    //completeSale();
+                    try
+                    {
+                        store.CompleteSale();
+                    }
+                    catch (InsufficientFundsException ex)
+                    {
+                        ex.NotEnoughFunds();
+                    }
                 }
-                Console.WriteLine("\n***ERROR***\n Invalid Entry\n");
+                //Console.WriteLine("\n***ERROR***\n Invalid Entry\n");
                 ShowMakeSaleMenu();
             }
         }
@@ -122,18 +132,21 @@ namespace Capstone.Classes
             Console.WriteLine("Your Cart Contains:  \n");
             foreach (ICandy item in store.ShoppingCart)
             {
-                Console.WriteLine(item.ItemQuantitySelected + " " + item.ItemName + " " + item.ItemTotalPrice + "\n");
+                Console.WriteLine(item.ItemQuantitySelected + " " + item.ItemName + " " + item.ItemTotalPrice);
             }
+            Console.WriteLine("\nTotal price is currently:  " + store.totalCartPrice + "\n");
         }
 
         //This method prints a list of vending items from a list populated by a .csv text file.
         private void ShowInventoryMenu()
         {
+            Console.WriteLine("--------------------------------------------------------------");
             Console.WriteLine("{0, -5} {1, -20} {2, -10} {3, -5} {4, 0}", "\nId", "Name", "Wrapper", "Qty", "Price\n");
             foreach (ICandy item in inventoryItemList)
             {
                 Console.WriteLine("{0, -5} {1, -20} {2, -10} {3, -5} {4, 0}", item.ItemId, item.ItemName, item.IsIndiviuallyWrapped, item.ItemQuantity, item.ItemIndividualPrice);
             }
+            Console.WriteLine("--------------------------------------------------------------");
         }
     }
 }
