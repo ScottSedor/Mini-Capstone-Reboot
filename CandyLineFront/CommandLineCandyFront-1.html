@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="grid-area">
+    <div class="trim">
+        <div class="faceplate">
+            <div class="glasswindow">
+                <div class="dropbox">
+
+                </div>
+            </div>
+        </div>
+    </div>   
+</div>
+</body>
+</html>
+
+<style>
+
+.grid-area
+{
+    display: flex;
+    justify-content: center;
+} 
+.trim 
+{
+    display: flex;
+    background-color: rgb(47, 45, 58);
+    width: 42rem;
+    height: 57rem; 
+    justify-content: center;
+    align-content: center; 
+}
+.faceplate
+{
+    display: grid;
+    grid-template-areas:   
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    "dropbox dropbox . .";
+    background-color: mediumslateblue;
+    width: 40rem;
+    height: 55rem;
+    margin: 12px; 
+}
+.glasswindow
+{
+    background-color: rgb(46, 39, 82);
+    width: 28rem;
+    height: 43rem;
+    margin: 12px; 
+}
+.dropbox
+{
+    grid-area: dropbox;
+    background-color: rgb(85, 83, 95);
+    width: 28rem;
+    height: 10rem;
+}
+</style>

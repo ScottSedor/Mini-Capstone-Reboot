@@ -54,6 +54,10 @@ namespace Capstone.Classes
                     Console.WriteLine(productSelected.ItemQuantitySelected + " " + productSelected.ItemName + "(s) Have been added to your cart.");
                     Console.WriteLine("****************************************************************\n");
                 }
+                //else
+                //{
+                //    Console.WriteLine("Please select a valid item ID. ");
+                //}
             }
         }
         public InventoryItem AddProductToCart(ICandy productSelected, int quantity)
@@ -71,7 +75,5 @@ namespace Capstone.Classes
             productSelected.ItemTotalPrice = productSelected.ItemIndividualPrice * productSelected.ItemQuantitySelected;
             return inventoryItem;
         }
-
-        //public  selectItem
     }
 }

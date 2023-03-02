@@ -14,6 +14,8 @@ namespace Capstone.Classes
         List<ICandy> inventoryItemList = inventoryItem.PopulateInventoryList();   
         public void Run()
         {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Red;
             try
             {
                 ShowMainMenu();
@@ -98,7 +100,7 @@ namespace Capstone.Classes
                         ex.NotEnoughFunds();
                     }
                 }
-                //Console.WriteLine("\n***ERROR***\n Invalid Entry\n");
+                Console.WriteLine("\n***ERROR***\n Invalid Entry\n");
                 ShowMakeSaleMenu();
             }
         }
